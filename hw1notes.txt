@@ -1,0 +1,9 @@
+better than 10 percent error
+exception handling in all functions
+roundoff error
+
+try scipy interpolation - spline
+
+improve 3c long equation
+
+legend of which graph is which

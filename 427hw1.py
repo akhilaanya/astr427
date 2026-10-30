@@ -5,16 +5,16 @@ count = 0 #The initial iteration
 import numpy as np
 import sys
 
-epsilon = np.float32(2.0**(count)) #Floating point representation
+epsilon = np.float64(1.0/2.0**(count)) #Floating point representation
 diff = 1.0 - epsilon 
-
+    
 while diff != 1.0: #not a sufficiently small epsilon
     try: 
         epsilon_before = epsilon
         count = count + 1
         #redo iteration with a smaller epsilon (goes as 1/2**count, see above)
     
-        epsilon = np.float32(1.0/(2.0**(count))) #because you want epsilon to get smaller
+        epsilon = np.float64(1.0/(2.0**(count))) #because you want epsilon to get smaller
         diff = 1.0 - epsilon #calculates difference again
 
     except Exception as e: #Handles all possible value errors, type errors, etc. 
@@ -26,7 +26,7 @@ print(f"Here's the smallest epsilon s.t. result - epsilon is not ≠ 1.0!: {epsi
 count = 0 #The initial iteration
 
 
-epsilon = np.float32(2.0**(count)) #F.P. representation omitting mantissa
+epsilon = np.float64(2.0**(count)) #F.P. representation omitting mantissa
 sumtotal = 1.0 + epsilon 
 
 while sumtotal != 1.0: #not sufficiently small epsilon
@@ -34,7 +34,7 @@ while sumtotal != 1.0: #not sufficiently small epsilon
         pre_epsilon = epsilon
         count = count + 1 #redo iteration with a smaller epsilon (goes as 1/2**count, see above)
     
-        epsilon = np.float32(1.0/(2.0**(count))) #because you want epsilon to get smaller 
+        epsilon = np.float64(1.0/(2.0**(count))) #because you want epsilon to get smaller 
         sumtotal = 1.0 + epsilon #calculates difference again
 
     except Exception as e:
